@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('subject_id');
             $table->string('body',150);
-            $table->string('stars');
+            $table->int('stars');
             $table->timestamps();
             $table->softDeletes();
         });
