@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('evaluation',2000);
             $table->string('test',1000);
             $table->string('category',10);
-            $table->int('stars_average',5);
+            $table->float('stars_average',5)->default(0.0);
             $table->timestamps();
             $table->softDeletes();
         });
