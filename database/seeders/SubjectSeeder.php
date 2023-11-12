@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use DateTime;
 
 class SubjectSeeder extends Seeder
 {
@@ -14,9 +16,9 @@ class SubjectSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('sybjects')->insert([//
+        DB::table('subjects')->insert([//
         'name'=>'経営学',
-        'pofesser_name'=>'柳田太郎',
+        'professer_name'=>'柳田太郎',
         'summary'=>'講義内容',
         'evaluation'=>'評価基準
                         評価A+（90点以上）：	
@@ -36,7 +38,7 @@ class SubjectSeeder extends Seeder
                         ',
         'test'=>'sylldocument.GetElementById を基本に、要素の取得と書き換えを行う。
 第三講目',
-            'cadegory'=>'3年春学期',
+            'category'=>'3年春学期',
             'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
                 'deleted_at'=> new DateTime(),
