@@ -7,6 +7,8 @@ use App\Models\Comment;
 use App\Http\Requests\CommentRequest; 
 use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Comment_returnRequest; 
+use App\Models\CommentReturn;
 
 class CommentController extends Controller
 {
@@ -34,4 +36,12 @@ class CommentController extends Controller
         return redirect('/comments/' . $comment->id);
     }
     
+    public function store2(Comment_returnRequest $Comment_returnrequest, CommentReturn $comment_return)
+    {
+        $input = $Comment_returnrequest['comment_return'];
+        $input['user_id']=Auth::id();
+        //dd($input);
+        $comment_return->fill($input)->save();
+        return redirect('/comments/' . $comment_return->id);
+    }
 }
