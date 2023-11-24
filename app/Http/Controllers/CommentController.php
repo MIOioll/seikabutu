@@ -36,6 +36,11 @@ class CommentController extends Controller
         return redirect('/comments/' . $comment->id);
     }
     
+    public function creturn(Comment_return $comment_return)
+    {
+        return view('comments.creturn')->with(['comment_return' => $comment_return]);
+    }
+
     public function store2(Comment_returnRequest $Comment_returnrequest, CommentReturn $comment_return)
     {
         $input = $Comment_returnrequest['comment_return'];
@@ -44,4 +49,14 @@ class CommentController extends Controller
         $comment_return->fill($input)->save();
         return redirect('/comments/' . $comment_return->id);
     }
+    
+    public function delete(Comment $comment)
+    {
+       
+            $comment->comment_returns()->delete();
+        
+        $comment->delete();
+        return redirect('/');
+    }
+    
 }

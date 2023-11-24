@@ -13,6 +13,11 @@ class Comment extends Model
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
+    public function comment_returns()
+    {
+        return $this->hasMany(CommentReturn::class);
+    }
+    
     protected $fillable = [
     'name',
     'body',
@@ -20,4 +25,5 @@ class Comment extends Model
     'stars',
     'subject_id',
     ];
+    
 }
