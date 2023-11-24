@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('body',150);
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignId('comment_id');
         });
     }
 
