@@ -15,14 +15,17 @@
                  <p>Posted at: {{ $comment->created_at }}</p>
                 <p class='body'></p>
                 <p>{{ $comment->body }}</p>
-                <button type=“button” onclick="/comments/return">返信</button>
-                <button type=“button” onclick="/comments/reaction">リアクション</button>
-                <button type=“button” onclick="/comments/threads">スレッドを表示する</button>
-                <form action="/comments/{{ $comment->id }}" id="form_{{ $comment->id }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="button" onclick="deleteComment({{ $comment->id }})">削除</button> 
-                </form>
+                <div class="mt-5">
+                    <a href="/comments/{{ $comment->id}}/return" class="border-2 border-teal-500 rounded-lg bg-teal-500 text-white p-2.5">返信</a>
+                    <a href="/comments/reaction" class="border-2 border-yellow-500 rounded-lg bg-yellow-500 text-white p-2.5">リアクション</a>
+                    <a href="/comments/threads" class="border-2 border-sky-400 rounded-lg bg-sky-400 text-white p-2.5">スレッドを表示する</a>
+                    <form action="/comments/{{ $comment->id }}" id="form_{{ $comment->id }}" method="post" class="inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deleteComment({{ $comment->id }})" class="border-2 border-rose-400 rounded-lg bg-rose-400 text-white p-2">削除</button> 
+                    </form>
+                </div>
+                <hr>
             </div>
              @endforeach
               <div class='paginate'>
