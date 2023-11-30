@@ -36,20 +36,6 @@ class CommentController extends Controller
         return redirect('/comments/' . $comment->id);
     }
     
-    public function creturn(Comment_return $comment_return)
-    {
-        return view('comments.creturn')->with(['comment_return' => $comment_return]);
-    }
-
-    public function store2(Comment_returnRequest $Comment_returnrequest, CommentReturn $comment_return)
-    {
-        $input = $Comment_returnrequest['comment_return'];
-        $input['user_id']=Auth::id();
-        //dd($input);
-        $comment_return->fill($input)->save();
-        return redirect('/comments/' . $comment_return->id);
-    }
-    
     public function delete(Comment $comment)
     {
        

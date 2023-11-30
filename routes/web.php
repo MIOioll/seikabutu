@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;  
+use App\Http\Controllers\CommentReturnController;  
 
 /*
 |--------------------------------------------------------------------------
@@ -32,11 +33,14 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [CommentController::class, 'index']);
-    Route::get('/comments/create', [CommentController::class, 'create']);
+    Route::get('/comments/create', [CommentController::class, 'create'])->name('comments_create');
+     Route::get('/comments/{comment}/return',[CommentReturnController::class,'creturn']);
     Route::get('/comments/{comment}', [CommentController::class ,'show']);
     Route::post('/comments', [CommentController::class, 'store']);
-    Route::get('/comments/return',[CommentController::class,'creturn']);
-    Route::post('/comments/return', [CommentController::class, 'store2']);
+    
+   
+    Route::post('/comments/{comment}/return', [CommentReturnController::class, 'store2']);
+    
     Route::delete('/comments/{comment}', [CommentController::class,'delete']);
     
 });

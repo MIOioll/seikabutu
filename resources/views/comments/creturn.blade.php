@@ -5,17 +5,8 @@
         </h2>
     </x-slot>
         <h1>返信作成</h1>
-        <form action="/comments" method="POST">
+        <form action="/comments/{{ $comment->id}}/return" method="POST">
             @csrf
-            
-                    @foreach ($subjects as $subject)
-                    <option value="{{ $subject->id }}">
-                        {{ $subject->name }}
-                        
-                    </option>
-                    @endforeach
-                </select>
-            </div>
             <div class="body">
                 <h2>Body</h2>
                 <textarea name="comment_return[body]"></textarea>

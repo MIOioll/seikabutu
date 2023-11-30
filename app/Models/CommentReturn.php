@@ -15,6 +15,10 @@ class CommentReturn extends Model
         return $this->belongsTo(Comment::class);  
     }    
     
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
     
     protected $fillable = [
         'user_id',

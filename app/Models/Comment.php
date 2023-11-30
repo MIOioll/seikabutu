@@ -18,6 +18,13 @@ class Comment extends Model
         return $this->hasMany(CommentReturn::class);
     }
     
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+    
+    
+    
     protected $fillable = [
     'name',
     'body',
